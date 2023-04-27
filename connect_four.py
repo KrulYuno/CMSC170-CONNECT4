@@ -24,7 +24,7 @@ def print_board(board):
     print(np.flip(board, 0))
 
 
-def ai_check_if_win(board, piece):
+def winning_move(board, piece):
     """Check if a player has won the game."""
     # Check horizontal locations
     for c in range(4):
@@ -63,7 +63,7 @@ def play_game():
             if is_valid_location(board, col):
                 row = get_next_open_row(board, col)
                 drop_piece(board, row, col, 1)
-                if ai_check_if_win(board, 1):
+                if winning_move(board, 1):
                     print("Player 1 wins!")
                     game_over = True
 
@@ -73,7 +73,7 @@ def play_game():
             if is_valid_location(board, col):
                 row = get_next_open_row(board, col)
                 drop_piece(board, row, col, 2)
-                if ai_check_if_win(board, 2):
+                if winning_move(board, 2):
                     print("Player 2 wins!")
                     game_over = True
         
